@@ -9,6 +9,17 @@ header {visibility: hidden;}
     color: #e4e4e4;
 }
 
+/* Override Streamlit's default narrow width - Multiple selectors for maximum compatibility */
+.main .block-container,
+section.main > div,
+.stApp > div > div,
+div[data-testid="stAppViewContainer"] > section > div,
+div[data-testid="stVerticalBlock"] {
+    max-width: 1400px !important;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+}
+
 /* Navigation bar */
 .nav-bar {
     position: fixed;
@@ -28,11 +39,26 @@ header {visibility: hidden;}
 
 /* Add padding to main content to account for fixed header */
 .main .block-container {
-    padding-top: 100px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-top: 100px !important;
+}
+
+/* Force wider layout on all screen sizes */
+@media (min-width: 576px) {
+    .main .block-container {
+        max-width: 1400px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .main .block-container {
+        max-width: 1400px !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main .block-container {
+        max-width: 1400px !important;
+    }
 }
 
 /* Profile section in header */
