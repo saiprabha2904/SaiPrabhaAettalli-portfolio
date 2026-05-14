@@ -375,6 +375,5 @@ Senior AI Engineer | Agentic AI & LLM Systems | Automation | Data Engineering | 
 
 ---
 
-**Built with ❤️ using Python & Streamlit**
 
 *Last Updated: May 2026*
