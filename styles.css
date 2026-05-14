@@ -29,8 +29,10 @@ header {visibility: hidden;}
 /* Add padding to main content to account for fixed header */
 .main .block-container {
     padding-top: 100px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 /* Profile section in header */
