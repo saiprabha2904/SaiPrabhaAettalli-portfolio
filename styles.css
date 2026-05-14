@@ -29,8 +29,10 @@ header {visibility: hidden;}
 /* Add padding to main content to account for fixed header */
 .main .block-container {
     padding-top: 100px;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 /* Profile section in header */
@@ -164,26 +166,12 @@ header {visibility: hidden;}
     color: #9ca3af !important;
     margin: 0;
     padding: 0;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     animation: fadeInDown 1s ease-out 0.3s both;
     letter-spacing: 1px;
-    position: relative;
     display: inline-block;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     text-shadow: none;
-}
-
-.stylish-name::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #2E86AB, #A23B72, #F18F01, transparent);
-    border-radius: 2px;
-    animation: breathe 2s ease-in-out infinite;
 }
 
 .stylish-name:hover {
