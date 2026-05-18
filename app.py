@@ -37,56 +37,30 @@ if not profile_img_base64:
     profile_img_base64 = get_image_base64("assets/profile.jpg")
 
 
-# Create navigation bar with hamburger menu for mobile
+# Create navigation bar with hamburger menu for mobile (CSS-only solution)
 st.markdown("""
 <div class="nav-bar">
     <div class="nav-profile">
         <div class="nav-profile-name">Sai Prabha Aettalli</div>
     </div>
-    <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Toggle menu">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger-menu">
         <span></span>
         <span></span>
         <span></span>
-    </button>
-    <div class="nav-links" id="navLinks">
-        <a href="#home" class="nav-link" onclick="closeMenu()">🏠 Home</a>
-        <a href="#profile" class="nav-link" onclick="closeMenu()">💼 Profile</a>
-        <a href="#achievements" class="nav-link" onclick="closeMenu()">🏆 Achievements</a>
-        <a href="#experience" class="nav-link" onclick="closeMenu()">💼 Experience</a>
-        <a href="#skills" class="nav-link" onclick="closeMenu()">🛠️ Skills</a>
-        <a href="#certifications" class="nav-link" onclick="closeMenu()">🎓 Certifications</a>
-        <a href="#education" class="nav-link" onclick="closeMenu()">🎓 Education</a>
-        <a href="#contact" class="nav-link" onclick="closeMenu()">📞 Contact</a>
+    </label>
+    <div class="nav-links">
+        <a href="#home" class="nav-link">🏠 Home</a>
+        <a href="#profile" class="nav-link">💼 Profile</a>
+        <a href="#achievements" class="nav-link">🏆 Achievements</a>
+        <a href="#experience" class="nav-link">💼 Experience</a>
+        <a href="#skills" class="nav-link">🛠️ Skills</a>
+        <a href="#certifications" class="nav-link">🎓 Certifications</a>
+        <a href="#education" class="nav-link">🎓 Education</a>
+        <a href="#contact" class="nav-link">📞 Contact</a>
     </div>
+    <label for="menu-toggle" class="menu-overlay"></label>
 </div>
-
-<script>
-function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    const hamburger = document.querySelector('.hamburger-menu');
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active');
-}
-
-function closeMenu() {
-    const navLinks = document.getElementById('navLinks');
-    const hamburger = document.querySelector('.hamburger-menu');
-    navLinks.classList.remove('active');
-    hamburger.classList.remove('active');
-}
-
-// Close menu when clicking outside
-document.addEventListener('click', function(event) {
-    const navLinks = document.getElementById('navLinks');
-    const hamburger = document.querySelector('.hamburger-menu');
-    const navBar = document.querySelector('.nav-bar');
-    
-    if (!navBar.contains(event.target)) {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
-    }
-});
-</script>
 """, unsafe_allow_html=True)
 
 # Hero Section
