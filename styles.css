@@ -877,15 +877,16 @@ header {visibility: hidden;}
     /* Navigation links - dropdown menu on mobile */
     .nav-links {
         position: fixed;
-        top: 60px;
+        top: 0;
         right: -100%;
         width: 250px;
-        height: calc(100vh - 60px);
+        height: 100vh;
         background: rgba(10, 14, 26, 0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
         gap: 0;
-        padding: 20px 0;
+        padding: 0;
+        padding-top: 70px;
         transition: right 0.3s ease;
         overflow-y: auto;
         border-left: 2px solid #2E86AB;
