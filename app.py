@@ -37,44 +37,57 @@ if not profile_img_base64:
     profile_img_base64 = get_image_base64("assets/profile.jpg")
 
 
-# Create navigation bar with profile
-if profile_img_base64:
-    st.markdown("""
-    <div class="nav-bar">
-        <div class="nav-profile">
-            <div class="nav-profile-name">Sai Prabha Aettalli</div>
-        </div>
-        <div class="nav-links">
-            <a href="#home" class="nav-link">🏠 Home</a>
-            <a href="#profile" class="nav-link">💼 Profile</a>
-            <a href="#achievements" class="nav-link">🏆 Achievements</a>
-            <a href="#experience" class="nav-link">💼 Experience</a>
-            <a href="#skills" class="nav-link">🛠️ Skills</a>
-            <a href="#certifications" class="nav-link">🎓 Certifications</a>
-            <a href="#education" class="nav-link">🎓 Education</a>
-            <a href="#contact" class="nav-link">📞 Contact</a>
-        </div>
+# Create navigation bar with hamburger menu for mobile
+st.markdown("""
+<div class="nav-bar">
+    <div class="nav-profile">
+        <div class="nav-profile-name">Sai Prabha Aettalli</div>
     </div>
-    """, unsafe_allow_html=True)
-else:
-    # Fallback without image
-    st.markdown("""
-    <div class="nav-bar">
-        <div class="nav-profile">
-            <div class="nav-profile-name">Sai Prabha Aettalli</div>
-        </div>
-        <div class="nav-links">
-            <a href="#home" class="nav-link">🏠 Home</a>
-            <a href="#profile" class="nav-link">💼 Profile</a>
-            <a href="#achievements" class="nav-link">🏆 Achievements</a>
-            <a href="#experience" class="nav-link">💼 Experience</a>
-            <a href="#skills" class="nav-link">🛠️ Skills</a>
-            <a href="#certifications" class="nav-link">🎓 Certifications</a>
-            <a href="#education" class="nav-link">🎓 Education</a>
-            <a href="#contact" class="nav-link">📞 Contact</a>
-        </div>
+    <button class="hamburger-menu" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link" onclick="closeMenu()">🏠 Home</a>
+        <a href="#profile" class="nav-link" onclick="closeMenu()">💼 Profile</a>
+        <a href="#achievements" class="nav-link" onclick="closeMenu()">🏆 Achievements</a>
+        <a href="#experience" class="nav-link" onclick="closeMenu()">💼 Experience</a>
+        <a href="#skills" class="nav-link" onclick="closeMenu()">🛠️ Skills</a>
+        <a href="#certifications" class="nav-link" onclick="closeMenu()">🎓 Certifications</a>
+        <a href="#education" class="nav-link" onclick="closeMenu()">🎓 Education</a>
+        <a href="#contact" class="nav-link" onclick="closeMenu()">📞 Contact</a>
     </div>
-    """, unsafe_allow_html=True)
+</div>
+
+<script>
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger-menu');
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+}
+
+function closeMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger-menu');
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navBar = document.querySelector('.nav-bar');
+    
+    if (!navBar.contains(event.target)) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+    }
+});
+</script>
+""", unsafe_allow_html=True)
 
 # Hero Section
 st.markdown('<div id="home"></div>', unsafe_allow_html=True)

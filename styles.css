@@ -791,20 +791,291 @@ header {visibility: hidden;}
     margin-bottom: 30px;
 }
 
+/* Hamburger menu - hidden on desktop */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 10001;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background: #2E86AB;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+    background: #F18F01;
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+    background: #F18F01;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
+    /* Navigation bar - compact with hamburger menu */
+    .nav-bar {
+        padding: 10px 15px;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        min-height: auto;
+        height: auto;
+    }
+    
+    /* Profile name - keep visible but smaller */
+    .nav-profile-name {
+        font-size: 1.1em;
+    }
+    
+    /* Show hamburger menu on mobile */
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    /* Navigation links - dropdown menu on mobile */
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 250px;
+        height: calc(100vh - 60px);
+        background: rgba(10, 14, 26, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        gap: 0;
+        padding: 20px 0;
+        transition: right 0.3s ease;
+        overflow-y: auto;
+        border-left: 2px solid #2E86AB;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        z-index: 10000;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-link {
+        padding: 15px 20px;
+        font-size: 0.95em;
+        white-space: nowrap;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(46, 134, 171, 0.2);
+        background: transparent;
+        width: 100%;
+        text-align: left;
+        display: block;
+    }
+    
+    .nav-link:hover {
+        background: rgba(241, 143, 1, 0.2);
+        transform: translateX(-5px);
+        border-left: 4px solid #F18F01;
+    }
+    
+    /* Reduce top padding for main content on mobile */
+    .main .block-container {
+        padding-top: 70px !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Hero section - more compact on mobile */
+    .hero-section {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+    
+    .hero-profile-img {
+        width: 150px !important;
+        height: 180px !important;
+        margin-bottom: 15px !important;
+    }
+    
     .hero-title {
         font-size: 2em;
     }
+    
+    .stylish-name {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+    
     .hero-subtitle {
-        font-size: 1.2em;
+        font-size: 1.1em;
+        margin-bottom: 20px;
     }
-    .nav-links {
-        gap: 5px;
+    
+    .hero-location {
+        font-size: 0.95em !important;
+        margin-top: 15px !important;
     }
+    
+    .hero-visa-badge {
+        padding: 8px 15px !important;
+        margin-top: 10px !important;
+    }
+    
+    .hero-visa-badge p {
+        font-size: 0.85em !important;
+    }
+    
+    /* Hero buttons - stack vertically on mobile */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    
+    .hero-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+    
+    /* Achievement cards - stack on mobile */
+    .achievement-card {
+        margin: 10px 0;
+        padding: 20px;
+    }
+    
+    .achievement-number {
+        font-size: 2em;
+    }
+    
+    .achievement-text {
+        font-size: 1em;
+    }
+    
+    /* Skills section - more compact */
+    .skills-wrapper {
+        padding: 12px 10px;
+    }
+    
+    .skills-category {
+        padding: 15px 18px;
+        margin: 12px 0;
+    }
+    
+    .skills-category-title {
+        font-size: 1.1em;
+        margin-bottom: 12px;
+    }
+    
+    .skill-badge {
+        padding: 5px 12px;
+        font-size: 0.82em;
+        margin: 4px 4px 4px 0;
+    }
+    
+    /* Contact grid - single column on mobile */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .contact-card {
+        padding: 18px 15px;
+    }
+    
+    .contact-icon {
+        font-size: 2em;
+    }
+    
+    /* Section spacing - reduce on mobile */
+    .section-spacer {
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    
+    /* Education card - more compact */
+    .education-card {
+        padding: 20px;
+    }
+    
+    .education-degree {
+        font-size: 1.3em;
+    }
+    
+    .education-field {
+        font-size: 1.1em;
+    }
+    
+    .education-details {
+        font-size: 0.95em;
+    }
+    
+    /* Certification cards - more compact */
+    .cert-card {
+        padding: 12px 15px;
+    }
+    
+    .cert-title {
+        font-size: 1em;
+    }
+    
+    .cert-details {
+        font-size: 0.88em;
+    }
+    
+    /* Expander - more compact on mobile */
+    .stExpander {
+        margin-bottom: 15px !important;
+    }
+    
+    .stExpander summary {
+        font-size: 1.05em !important;
+        padding: 12px 15px !important;
+    }
+    
+    .stExpander > div > div {
+        padding: 15px 18px !important;
+    }
+}
+
+/* Extra small devices (iPhone SE, etc.) */
+@media (max-width: 390px) {
+    .nav-profile-name {
+        font-size: 1em;
+    }
+    
     .nav-link {
-        padding: 8px 15px;
-        font-size: 0.85em;
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+    
+    .main .block-container {
+        padding-top: 110px;
+    }
+    
+    .stylish-name {
+        font-size: 1.8em;
+    }
+    
+    .hero-subtitle {
+        font-size: 1em;
+    }
+    
+    .hero-profile-img {
+        width: 130px !important;
+        height: 160px !important;
     }
 }
 
