@@ -861,7 +861,7 @@ header {visibility: hidden;}
         align-items: center;
         justify-content: space-between;
         min-height: auto;
-        height: auto;
+        height: 45px;
     }
     
     /* Profile name - keep visible but smaller */
@@ -876,45 +876,69 @@ header {visibility: hidden;}
     
     /* Navigation links - dropdown menu on mobile */
     .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 250px;
-        height: 100vh;
-        background: rgba(10, 14, 26, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
-        padding-top: 70px;
-        transition: right 0.3s ease;
-        overflow-y: auto;
-        border-left: 2px solid #2E86AB;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-        z-index: 9999;
+        position: fixed !important;
+        top: 45px !important;
+        right: -100% !important;
+        width: 250px !important;
+        height: calc(100vh - 45px) !important;
+        background: rgba(10, 14, 26, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        transition: right 0.3s ease !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        border-left: 2px solid #2E86AB !important;
+        border-top: 2px solid #2E86AB !important;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5) !important;
+        z-index: 9999 !important;
+        box-sizing: border-box !important;
+        justify-content: flex-start !important;
+        align-items: stretch !important;
     }
     
     /* Show menu when checkbox is checked */
     .menu-toggle:checked ~ .nav-links {
-        right: 0;
+        right: 0 !important;
     }
     
     .nav-link {
-        padding: 15px 20px;
-        font-size: 0.95em;
-        white-space: nowrap;
-        border-radius: 0;
-        border-bottom: 1px solid rgba(46, 134, 171, 0.2);
-        background: transparent;
-        width: 100%;
-        text-align: left;
-        display: block;
+        padding: 15px 20px !important;
+        font-size: 0.95em !important;
+        white-space: nowrap !important;
+        border-radius: 0 !important;
+        border-bottom: 1px solid rgba(46, 134, 171, 0.2) !important;
+        background: transparent !important;
+        width: 100% !important;
+        text-align: left !important;
+        display: block !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    .nav-link:first-child {
+        margin-top: 0 !important;
+        padding-top: 15px !important;
+    }
+    
+    /* Remove any spacing from nav-links container children */
+    .nav-links > * {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .nav-links > *:first-child {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
     
     .nav-link:hover {
-        background: rgba(241, 143, 1, 0.2);
-        transform: translateX(-5px);
-        border-left: 4px solid #F18F01;
+        background: rgba(241, 143, 1, 0.2) !important;
+        transform: translateX(-5px) !important;
+        border-left: 4px solid #F18F01 !important;
     }
     
     /* Reduce top padding for main content on mobile */
@@ -1273,3 +1297,4 @@ h1, h2, h3, h4, h5, h6 {
 html {
     scroll-behavior: smooth;
 }
+/* Cache buster: 1779116315 */
